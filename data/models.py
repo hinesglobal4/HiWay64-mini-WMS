@@ -48,6 +48,10 @@ class Product(db.Model):
     db.String(50)
     )
 
+    velocity_class = db.Column(
+    db.String(20)
+    )
+
 class Location(db.Model):
 
     id = db.Column(
@@ -66,6 +70,10 @@ class Location(db.Model):
 
     temperature_zone = db.Column(
         db.String(50)
+    )
+
+    distance_to_dock = db.Column(
+    db.Integer
     )
 
 class Inventory(db.Model):
