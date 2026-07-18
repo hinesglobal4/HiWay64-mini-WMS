@@ -42,7 +42,11 @@ class Product(db.Model):
 
     hazard_class = db.Column(
         db.String(50)
-    )   
+    )
+    
+    required_temperature_zone = db.Column(
+    db.String(50)
+    )
 
 class Location(db.Model):
 
@@ -57,6 +61,10 @@ class Location(db.Model):
     )
 
     zone = db.Column(
+        db.String(50)
+    )
+
+    temperature_zone = db.Column(
         db.String(50)
     )
 
