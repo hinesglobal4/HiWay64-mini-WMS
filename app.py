@@ -34,27 +34,27 @@ if __name__ == "__main__":
 def dashboard():
 
     metrics = {
-
         "inventory_accuracy": 98.3,
-
         "inventory_units": 12450,
-
         "receipts": 23,
-
         "variances": 4
     }
 
     alerts = [
+        "Aisle B temperature warning",
+        "2 inventory variances require review",
+        "No hazardous material conflicts detected"
+    ]
 
-        "Location A-04-01 nearing capacity",
-
-        "2 cycle count discrepancies",
-
-        "No chemical conflicts detected"
+    recent_activity = [
+        "Received SKU CHEM001",
+        "Cycle count completed at A-01-01",
+        "Transferred inventory to B-03-02"
     ]
 
     return render_template(
         "dashboard.html",
         metrics=metrics,
-        alerts=alerts
+        alerts=alerts,
+        recent_activity=recent_activity
     )
