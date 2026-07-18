@@ -3,6 +3,67 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class Product(db.Model):
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+
+    sku = db.Column(
+        db.String(50),
+        unique=True,
+        nullable=False
+    )
+
+    description = db.Column(
+        db.String(255)
+    )
+
+    weight = db.Column(
+        db.Float
+    )
+
+    freight_class = db.Column(
+        db.String(20)
+    )
+
+class Location(db.Model):
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+
+    code = db.Column(
+        db.String(50),
+        unique=True
+    )
+
+    zone = db.Column(
+        db.String(50)
+    )
+
+class Inventory(db.Model):
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+
+    sku = db.Column(
+        db.String(50)
+    )
+
+    location = db.Column(
+        db.String(50)
+    )
+
+    quantity = db.Column(
+        db.Integer,
+        default=0
+    )
+
 
 class CycleCount(db.Model):
     __tablename__ = "cycle_counts"
