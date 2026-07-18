@@ -2,80 +2,112 @@
 
 {% block content %}
 
-<h1>Warehouse Operations Dashboard</h1>
+<div class="container">
 
-<div class="row">
+    <h1 class="mb-4">
+        Warehouse Operations Dashboard
+    </h1>
 
-<div class="col-md-3">
-<div class="card">
-<div class="card-body">
+    <div class="row">
 
-<h5>Inventory Accuracy</h5>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6>Inventory Accuracy</h6>
+                    <h2>
+                        {{ metrics.inventory_accuracy }}%
+                    </h2>
+                </div>
+            </div>
+        </div>
 
-<h2>
-{{ metrics.inventory_accuracy }}%
-</h2>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6>Inventory Units</h6>
+                    <h2>
+                        {{ metrics.inventory_units }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6>Receipts</h6>
+                    <h2>
+                        {{ metrics.receipts }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h6>Variances</h6>
+                    <h2>
+                        {{ metrics.variances }}
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+
+            <div class="card">
+
+                <div class="card-header">
+                    Operational Alerts
+                </div>
+
+                <div class="card-body">
+
+                    <ul>
+
+                        {% for alert in alerts %}
+                        <li>{{ alert }}</li>
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="card">
+
+                <div class="card-header">
+                    Recent Activity
+                </div>
+
+                <div class="card-body">
+
+                    <ul>
+
+                        {% for item in recent_activity %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card">
-<div class="card-body">
-
-<h5>Inventory Units</h5>
-
-<h2>
-{{ metrics.inventory_units }}
-</h2>
-
-</div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card">
-<div class="card-body">
-
-<h5>Receipts</h5>
-
-<h2>
-{{ metrics.receipts }}
-</h2>
-
-</div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card">
-<div class="card-body">
-
-<h5>Variances</h5>
-
-<h2>
-{{ metrics.variances }}
-</h2>
-
-</div>
-</div>
-</div>
-
-</div>
-
-<hr>
-
-<h3>Operational Alerts</h3>
-
-<ul>
-
-{% for alert in alerts %}
-
-<li>{{ alert }}</li>
-
-{% endfor %}
-
-</ul>
 
 {% endblock %}
