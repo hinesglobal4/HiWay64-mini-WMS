@@ -64,16 +64,18 @@ class Location(db.Model):
         unique=True
     )
 
+    # Physical area
     zone = db.Column(
         db.String(50)
     )
 
+    # Environmental control
     temperature_zone = db.Column(
         db.String(50)
     )
 
     distance_to_dock = db.Column(
-    db.Integer
+        db.Integer
     )
 
 class Inventory(db.Model):
