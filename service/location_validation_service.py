@@ -34,3 +34,14 @@ if validation_errors:
         "messages":
         validation_errors
     }
+if (
+    product.required_temperature_zone
+    !=
+    target_location.temperature_zone
+):
+
+    violations.append(
+        f"{product.sku} requires "
+        f"{product.required_temperature_zone}"
+        f" storage."
+    )
