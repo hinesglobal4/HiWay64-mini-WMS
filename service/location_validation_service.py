@@ -24,3 +24,13 @@ class LocationValidationService:
                 )
 
         return violations
+
+if validation_errors:
+
+    return {
+
+        "success": False,
+
+        "messages":
+        validation_errors
+    }
