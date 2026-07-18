@@ -28,6 +28,14 @@ class Product(db.Model):
         db.String(20)
     )
 
+    product_family = db.Column(
+        db.String(50)
+    )
+
+    hazard_class = db.Column(
+        db.String(50)
+    )   
+
 class Location(db.Model):
 
     id = db.Column(
@@ -64,6 +72,24 @@ class Inventory(db.Model):
         default=0
     )
 
+class WarehouseRule(db.Model):
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
+
+    primary_family = db.Column(
+        db.String(50)
+    )
+
+    restricted_family = db.Column(
+        db.String(50)
+    )
+
+    minimum_aisles = db.Column(
+        db.Integer
+    )
 
 class CycleCount(db.Model):
     __tablename__ = "cycle_counts"
