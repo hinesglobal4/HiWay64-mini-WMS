@@ -111,3 +111,62 @@
 </div>
 
 {% endblock %}
+
+recommendations = [
+
+    {
+        "sku": "CHEM001",
+        "recommended_location": "HZ-01-05",
+        "reason": "Hazmat Zone"
+    },
+
+    {
+        "sku": "SKU1001",
+        "recommended_location": "A-01-01",
+        "reason": "Fast Mover"
+    }
+]
+
+<div class="card mt-4">
+
+<div class="card-header">
+Recommended Putaway Locations
+</div>
+
+<div class="card-body">
+
+<table class="table">
+
+<thead>
+
+<tr>
+<th>SKU</th>
+<th>Location</th>
+<th>Reason</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in recommendations %}
+
+<tr>
+
+<td>{{ item.sku }}</td>
+
+<td>{{ item.recommended_location }}</td>
+
+<td>{{ item.reason }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
