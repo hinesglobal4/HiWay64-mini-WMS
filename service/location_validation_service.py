@@ -3,11 +3,13 @@ class LocationValidationService:
     @staticmethod
     def validate_location(
         product,
-        target_location,
+        location,
         nearby_products
     ):
 
         violations = []
+
+        # Hazard check
 
         for item in nearby_products:
 
@@ -20,8 +22,22 @@ class LocationValidationService:
             ):
 
                 violations.append(
-                    "Flammable inventory cannot be stored near oxidizers."
+                    "Flammable inventory "
+                    "cannot reside near "
+                    "oxidizers."
                 )
+
+        # Temperature check
+
+        if (
+            product.required_temperature_zone
+            !=
+            location.temperature_zone
+        ):
+
+            violations.append(
+                "Temperature zone mismatch."
+            )
 
         return violations
 
