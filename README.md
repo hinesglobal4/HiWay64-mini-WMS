@@ -1,6 +1,22 @@
-# HiWay64-mini-WMS
-//HiWay64 prototype//
-A warehouse management system built with Python and Flask that supports receiving, inventory control, location management, order fulfillment, shipping operations, and warehouse KPI reporting.
+# HiWay64 Mini-WMS
+
+A Python-based Warehouse Management System built with Flask and SQLAlchemy.
+
+Features include:
+
+- Inventory Management
+- Receiving Operations
+- Location Control
+- Cycle Counting
+- Inventory Accuracy KPIs
+- Warehouse Analytics Dashboard
+- Transaction Audit Trail
+- Temperature Zone Validation
+- Hazardous Material Segregation Rules
+- Dynamic Slotting Optimization
+- Location Recommendation Engine
+
+The system incorporates real-world warehouse operational controls and logistics business rules inspired by LTL, freight, and distribution center operations.
 
 ## Operational Controls
 
