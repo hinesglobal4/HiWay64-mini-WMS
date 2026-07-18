@@ -1,1 +1,81 @@
+{% extends "base.html" %}
 
+{% block content %}
+
+<h1>Warehouse Operations Dashboard</h1>
+
+<div class="row">
+
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+
+<h5>Inventory Accuracy</h5>
+
+<h2>
+{{ metrics.inventory_accuracy }}%
+</h2>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+
+<h5>Inventory Units</h5>
+
+<h2>
+{{ metrics.inventory_units }}
+</h2>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+
+<h5>Receipts</h5>
+
+<h2>
+{{ metrics.receipts }}
+</h2>
+
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+
+<h5>Variances</h5>
+
+<h2>
+{{ metrics.variances }}
+</h2>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<hr>
+
+<h3>Operational Alerts</h3>
+
+<ul>
+
+{% for alert in alerts %}
+
+<li>{{ alert }}</li>
+
+{% endfor %}
+
+</ul>
+
+{% endblock %}
