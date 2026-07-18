@@ -28,6 +28,14 @@ class Product(db.Model):
         db.String(20)
     )
 
+    nmfc = db.Column(
+    db.String(50)
+    )
+
+    density = db.Column(
+    db.Float
+    ) 
+
     product_family = db.Column(
         db.String(50)
     )
