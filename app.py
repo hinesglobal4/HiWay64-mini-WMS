@@ -29,3 +29,32 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route("/dashboard")
+def dashboard():
+
+    metrics = {
+
+        "inventory_accuracy": 98.3,
+
+        "inventory_units": 12450,
+
+        "receipts": 23,
+
+        "variances": 4
+    }
+
+    alerts = [
+
+        "Location A-04-01 nearing capacity",
+
+        "2 cycle count discrepancies",
+
+        "No chemical conflicts detected"
+    ]
+
+    return render_template(
+        "dashboard.html",
+        metrics=metrics,
+        alerts=alerts
+    )
