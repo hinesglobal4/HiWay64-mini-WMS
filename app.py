@@ -37,24 +37,40 @@ def dashboard():
         "inventory_accuracy": 98.3,
         "inventory_units": 12450,
         "receipts": 23,
-        "variances": 4
+        "variances": 4,
+        "warehouse_health": 96
     }
 
     alerts = [
-        "Aisle B temperature warning",
+        "Temperature zone warning in Cooler-02",
         "2 inventory variances require review",
-        "No hazardous material conflicts detected"
+        "Hazardous material validation passed",
+        "No capacity issues detected"
     ]
 
     recent_activity = [
-        "Received SKU CHEM001",
-        "Cycle count completed at A-01-01",
-        "Transferred inventory to B-03-02"
+        "Received CHEM001 into HZ-01-05",
+        "Cycle Count completed in A-01-01",
+        "Inventory transfer completed to B-04-03"
+    ]
+
+    recommendations = [
+        {
+            "sku": "CHEM001",
+            "recommended_location": "HZ-01-05",
+            "reason": "Hazmat Zone"
+        },
+        {
+            "sku": "SKU1001",
+            "recommended_location": "A-01-01",
+            "reason": "Fast Mover"
+        }
     ]
 
     return render_template(
         "dashboard.html",
         metrics=metrics,
         alerts=alerts,
-        recent_activity=recent_activity
+        recent_activity=recent_activity,
+        recommendations=recommendations
     )
