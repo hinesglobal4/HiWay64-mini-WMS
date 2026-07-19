@@ -9,55 +9,28 @@ class LocationValidationService:
 
         violations = []
 
-        # Hazard check
-
+        # Hazard validation
         for item in nearby_products:
 
             if (
-                product.hazard_class ==
-                "Flammable"
+                product.hazard_class == "Flammable"
                 and
-                item.hazard_class ==
-                "Oxidizer"
+                item.hazard_class == "Oxidizer"
             ):
 
                 violations.append(
-                    "Flammable inventory "
-                    "cannot reside near "
-                    "oxidizers."
+                    "Flammable inventory cannot reside near oxidizers."
                 )
 
-        # Temperature check
-
+        # Temperature validation
         if (
             product.required_temperature_zone
-            !=
-            location.temperature_zone
+            != location.temperature_zone
         ):
 
             violations.append(
-                "Temperature zone mismatch."
+                f"{product.sku} requires "
+                f"{product.required_temperature_zone} storage."
             )
 
         return violations
-
-if validation_errors:
-
-    return {
-
-        "success": False,
-
-        "messages":
-        validation_errors
-    }
-if (
-    product.required_temperature_zone
-    !=
-    target_location.temperature_zone
-):
-
-    violations.append(
-        f"{product.sku} requires "
-        f"{product.required_temperature_zone}"
-        f" storage."
-    )
