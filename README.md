@@ -1,44 +1,71 @@
 # HiWay64 Mini-WMS
 
-Built a Python-based Warehouse Management System using Flask and SQLAlchemy that supports inventory control, receiving operations, cycle counting, warehouse KPIs, location validation, temperature-zone enforcement, slotting optimization, and hazardous-material segregation through rule-based location intelligence.
+HiWay64 Mini-WMS is a Python-based Warehouse Management System built with Flask and SQLAlchemy.
+
+The platform combines software engineering principles with real-world warehouse, distribution, and LTL transportation concepts.
 Features include:
 
 - Inventory Management
 - Receiving Operations
-- Location Control
+- Warehouse Locations
 - Cycle Counting
 - Inventory Accuracy KPIs
-- Warehouse Analytics Dashboard
-- Transaction Audit Trail
-- Temperature Zone Validation
-- Hazardous Material Segregation Rules
+- Operational Dashboards
+- Rule-Based Location Validation
+- Hazardous Material Segregation
+- Temperature Zone Enforcement
 - Dynamic Slotting Optimization
-- Location Recommendation Engine
+- Put-away Recommendations
+- Transaction Audit Logging
 
-The project incorporates real-world warehouse and LTL logistics concepts including freight classifications, inventory accuracy tracking, operational alerts, putaway recommendations, and audit controls.
+The project models operational controls commonly found in warehouse and logistics environments, emphasizing inventory accuracy, location intelligence, storage compliance, and warehouse efficiency.
 
-## Operational Controls
 
-### Cycle Counting
+## Architecture
 
-Supports warehouse inventory verification through cycle counts.
+The application follows a three-layer architecture:
 
-Features:
+Presentation Layer
+- HTML
+- Bootstrap
+- Jinja Templates
 
-- SKU level counts
-- Location verification
-- Automatic variance calculation
-- Audit trail generation
+Business Logic Layer
+- Inventory Services
+- Receiving Services
+- KPI Services
+- Validation Services
 
-### KPI Dashboard
+Data Layer
+- SQLAlchemy Models
+- SQLite Database
 
-Provides operational metrics including:
 
-- Inventory Accuracy %
-- Inventory Units
-- Orders Shipped
-- Receipts Processed
+## Rule-Based Location Intelligence
 
-### Inventory Transaction Log
+The WMS includes a validation engine that evaluates inventory placement before assignment.
 
-Captures all inventory movement activity for audit and traceability.
+Current validations:
+
+- Hazardous material segregation
+- Temperature zone enforcement
+- Product family restrictions
+- Slotting recommendations
+
+Example:
+
+A flammable product cannot be assigned near oxidizer inventory.
+
+Frozen inventory cannot be assigned to ambient storage locations.
+
+
+## Transportation and LTL Concepts
+
+Products may store:
+
+- Freight Class
+- NMFC Codes (National Motor Freight Classification)
+- Product Family
+- Hazard Classification
+
+This functionality reflects real-world LTL and distribution operations.
