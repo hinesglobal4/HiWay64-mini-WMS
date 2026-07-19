@@ -22,7 +22,10 @@ app = Flask(
 
 @app.route("/")
 def home():
-    return "Mini WMS Running"
+
+    return redirect(
+        url_for("dashboard")
+    )
 
 @app.route("/dashboard")
 def dashboard():
@@ -60,12 +63,7 @@ def dashboard():
             "reason": "Fast Mover"
         }
     ]
-@app.route("/")
-def home():
 
-    return redirect(
-        url_for("dashboard")
-    )
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
