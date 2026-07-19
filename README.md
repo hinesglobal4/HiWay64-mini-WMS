@@ -94,3 +94,10 @@ This functionality reflects real-world LTL and distribution operations.
 - Pick path optimization
 - Docker deployment
 - AWS cloud deployment
+
+// Future requirements additions //
+Flask-Migrate
+Flask-Login
+psycopg2-binary
+pytest
+
