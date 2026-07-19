@@ -1,4 +1,4 @@
-from data.models import (
+from models import (
     CycleCount,
     InventoryTransaction,
     db
