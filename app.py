@@ -14,9 +14,6 @@ from service.cycle_count_service import CycleCountService
 
 from service.kpi_service import KPIService
 
-
-from flask import Flask
-
 app = Flask(
     __name__,
     template_folder="frontend/templates",
@@ -26,9 +23,6 @@ app = Flask(
 @app.route("/")
 def home():
     return "Mini WMS Running"
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 @app.route("/dashboard")
 def dashboard():
@@ -66,6 +60,9 @@ def dashboard():
             "reason": "Fast Mover"
         }
     ]
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
     return render_template(
         "dashboard.html",
