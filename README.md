@@ -82,3 +82,15 @@ Products may store:
 - Hazard Classification
 
 This functionality reflects real-world LTL and distribution operations.
+
+
+## Planned Enhancements
+
+- REST API implementation
+- Role-based security
+- Barcode scanning integration
+- PostgreSQL migration
+- Automated replenishment logic
+- Pick path optimization
+- Docker deployment
+- AWS cloud deployment
