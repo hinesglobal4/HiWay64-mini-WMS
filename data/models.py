@@ -29,11 +29,11 @@ class Product(db.Model):
     )
 
     nmfc = db.Column(
-    db.String(50)
+        db.String(50)
     )
 
     density = db.Column(
-    db.Float
+        db.Float
     ) 
 
     product_family = db.Column(
@@ -45,11 +45,11 @@ class Product(db.Model):
     )
     
     required_temperature_zone = db.Column(
-    db.String(50)
+        db.String(50)
     )
 
     velocity_class = db.Column(
-    db.String(20)
+        db.String(20)
     )
 
 class Location(db.Model):
