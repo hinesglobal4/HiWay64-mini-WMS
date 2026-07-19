@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container mt-4">
 
     <h1 class="mb-4">
         Warehouse Operations Dashboard
@@ -10,46 +10,47 @@
 
     <div class="row">
 
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h6>Inventory Accuracy</h6>
-                    <h2>
-                        {{ metrics.inventory_accuracy }}%
-                    </h2>
+        <div class="col-md-2">
+            <div class="card border-success">
+                <div class="card-body text-center">
+                    <h6>Accuracy</h6>
+                    <h2>{{ metrics.inventory_accuracy }}%</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h6>Inventory Units</h6>
-                    <h2>
-                        {{ metrics.inventory_units }}
-                    </h2>
+        <div class="col-md-2">
+            <div class="card border-primary">
+                <div class="card-body text-center">
+                    <h6>Units</h6>
+                    <h2>{{ metrics.inventory_units }}</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
+        <div class="col-md-2">
+            <div class="card border-info">
+                <div class="card-body text-center">
                     <h6>Receipts</h6>
-                    <h2>
-                        {{ metrics.receipts }}
-                    </h2>
+                    <h2>{{ metrics.receipts }}</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card text-center">
-                <div class="card-body">
+        <div class="col-md-2">
+            <div class="card border-danger">
+                <div class="card-body text-center">
                     <h6>Variances</h6>
-                    <h2>
-                        {{ metrics.variances }}
-                    </h2>
+                    <h2>{{ metrics.variances }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="card border-warning">
+                <div class="card-body text-center">
+                    <h6>Health</h6>
+                    <h2>{{ metrics.warehouse_health }}%</h2>
                 </div>
             </div>
         </div>
@@ -62,7 +63,7 @@
 
             <div class="card">
 
-                <div class="card-header">
+                <div class="card-header bg-warning">
                     Operational Alerts
                 </div>
 
@@ -70,9 +71,11 @@
 
                     <ul>
 
-                        {% for alert in alerts %}
+                    {% for alert in alerts %}
+
                         <li>{{ alert }}</li>
-                        {% endfor %}
+
+                    {% endfor %}
 
                     </ul>
 
@@ -86,7 +89,7 @@
 
             <div class="card">
 
-                <div class="card-header">
+                <div class="card-header bg-info">
                     Recent Activity
                 </div>
 
@@ -94,9 +97,11 @@
 
                     <ul>
 
-                        {% for item in recent_activity %}
+                    {% for item in recent_activity %}
+
                         <li>{{ item }}</li>
-                        {% endfor %}
+
+                    {% endfor %}
 
                     </ul>
 
@@ -108,66 +113,48 @@
 
     </div>
 
-</div>
+    <div class="card mt-4">
 
-recommendations = [
+        <div class="card-header bg-success text-white">
+            Recommended Putaway Locations
+        </div>
 
-    {
-        "sku": "CHEM001",
-        "recommended_location": "HZ-01-05",
-        "reason": "Hazmat Zone"
-    },
+        <div class="card-body">
 
-    {
-        "sku": "SKU1001",
-        "recommended_location": "A-01-01",
-        "reason": "Fast Mover"
-    }
-]
+            <table class="table table-striped">
 
-<div class="card mt-4">
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Location</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
 
-<div class="card-header">
-Recommended Putaway Locations
-</div>
+                <tbody>
 
-<div class="card-body">
+                {% for item in recommendations %}
 
-<table class="table">
+                    <tr>
 
-<thead>
+                        <td>{{ item.sku }}</td>
 
-<tr>
-<th>SKU</th>
-<th>Location</th>
-<th>Reason</th>
-</tr>
+                        <td>{{ item.recommended_location }}</td>
 
-</thead>
+                        <td>{{ item.reason }}</td>
 
-<tbody>
+                    </tr>
 
-{% for item in recommendations %}
+                {% endfor %}
 
-<tr>
+                </tbody>
 
-<td>{{ item.sku }}</td>
+            </table>
 
-<td>{{ item.recommended_location }}</td>
+        </div>
 
-<td>{{ item.reason }}</td>
-
-</tr>
-
-{% endfor %}
-
-</tbody>
-
-</table>
-
-</div>
+    </div>
 
 </div>
 
 {% endblock %}
-
