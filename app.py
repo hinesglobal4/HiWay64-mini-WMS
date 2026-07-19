@@ -8,10 +8,8 @@ from flask import (
 
 from data.models import db
 
-from service.inventory_service import inventory_service
-
+from service.inventory_service import bp as inventory_bp
 from service.cycle_count_service import CycleCountService
-
 from service.kpi_service import KPIService
 
 app = Flask(
@@ -20,9 +18,11 @@ app = Flask(
     static_folder="frontend/static"
 )
 
+# Register the inventory blueprint
+app.register_blueprint(inventory_bp)
+
 @app.route("/")
 def home():
-
     return redirect(
         url_for("dashboard")
     )
