@@ -2,13 +2,20 @@
 
 HiWay64 Mini-WMS is a Python-based Warehouse Management System built with Flask and SQLAlchemy.
 
-## Why This Project Exists
+## Business Problem
 
-This project was created to bridge practical warehouse operations experience with modern software engineering practices.
+Many warehouse management systems focus only on storing inventory transactions.
+Real distribution centers must also enforce operational constraints such as:
 
-The application models real-world distribution center workflows, including inventory control, cycle counting, slotting optimization, hazardous material segregation, freight classification, temperature-controlled storage, and operational KPI monitoring.
+- Hazardous material segregation
+- Temperature-controlled storage
+- Product family restrictions
+- Space utilization
+- Inventory accuracy monitoring
 
+This project was built to simulate how a WMS can use business rules to reduce operational risk and improve inventory placement decisions.
 The goal is to demonstrate both technical development skills and supply-chain domain expertise through a realistic warehouse management platform.
+
 Features include:
 
 - Inventory Management
