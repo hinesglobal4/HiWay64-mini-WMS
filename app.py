@@ -64,17 +64,17 @@ def dashboard():
         }
     ]
 
-if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=5000,
-        debug=True
-    )
-
     return render_template(
         "dashboard.html",
         metrics=metrics,
         alerts=alerts,
         recent_activity=recent_activity,
         recommendations=recommendations
+    )
+
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
     )
